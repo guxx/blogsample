@@ -1,0 +1,90 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("css/jquery.tagsinput.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("css/foundation.min.css")">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("css/main.css")">
+    </head>
+    <body>
+    <nav class="top-bar" data-topbar role="navigation">
+    	<ul class="title-area">
+    		<li class="name">
+    			<h1><a href="/">GXBLOG</a></h1>
+    		</li>
+    	</ul>
+    	<section class="top-bar-section">
+    		<ul class="right">
+    			<li >
+    			<a href="/add">Create New Post</a>
+    			</li>
+    		</ul>
+    	</section>
+    </nav>
+    <div class="row">
+        @content
+     
+        <aside class="large-3 columns">
+     
+          <h4>Categories</h4>
+          <ul class="side-nav">
+            <li><a href="/posts/tech">Tech</a></li>
+            <li><a href="/posts/entertainment">Entertainment</a></li>
+            <li><a href="/posts/development">Deveploment</a></li>
+            <li><a href="/posts/sports">Sports</a></li>
+          </ul>
+     
+          <div class="panel">
+            <h5>Welcome to my Blog</h5>
+            <p>This blog was developed in different layers with Nodejs and Play Framework(Java 8)</p>
+          </div>
+     
+        </aside>
+     
+         
+      </div>
+        <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-6 columns">
+              <p>© Gx .</p>
+            </div>
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="/">Home</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </body>
+    <script src="@routes.Assets.versioned("js/vendor/jquery.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("js/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("js/tinymce/jquery.tinymce.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("js/foundation.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.versioned("js/jquerytags/jquery.tagsinput.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+		$('#tags').tagsInput({width:'auto', delimiter:[' ', ',','.',';']});
+
+		    tinymce.init({
+		    selector: "textarea"
+		 	});
+	});
+    $(document).foundation();
+    $('#addForm')
+		  .on('invalid.fndtn.abide', function () {
+		    var invalid_fields = $(this).find('[data-invalid]');
+		    console.log(invalid_fields);
+		  })
+		  .on('valid.fndtn.abide', function () {
+		    console.log('valid!');
+		  });
+
+    </script>
+</html>

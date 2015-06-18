@@ -1,0 +1,26 @@
+@import models.Post
+@(posts: List[Post])
+
+@main("GX BLOG") {
+		<div class="large-9 columns" role="content">
+        @for(p <- posts){
+        		<article>
+     
+	            <h3><a href="#">@p.getTitle()</a></h3>
+	     		<h6>Written by @p.getAuthor() on @p.getCreatedDateString() </h6>
+	            <div class="row">
+	              <div class="large-12 columns">
+	                <p>@Html(p.getBody())</p>
+	              </div>
+	            </div>
+	     
+	          </article>
+         	 <hr/>
+        	
+        }
+        </div>
+
+
+   
+}
+

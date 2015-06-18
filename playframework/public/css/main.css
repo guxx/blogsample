@@ -1,0 +1,9 @@
+body{
+    background: url('../img/background.jpg') 50% 0 no-repeat fixed;
+    background-size: cover;
+    color:#fff;
+ }
+ h3,h4,h5,h6
+ {
+ 	color:#fff;
+ }
